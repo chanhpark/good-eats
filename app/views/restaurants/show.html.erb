@@ -1,0 +1,28 @@
+<h3> Restaurant: <%= @restaurant.name %></h3>
+
+<div>
+  Address: <%= @restaurant.address %>,
+  <%= @restaurant.city %>,
+  <%= @restaurant.state %>
+  <%= @restaurant.zipcode %>
+</div>
+
+<%= form_for [@restaurant, @reviews] do |f| %>
+<div>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %><br>
+  <%= f.label :review %>
+  <%= f.text_area :review %><br>
+  <%= f.submit "Submit" %>
+</div>
+<% end %>
+
+<h4> Reviews </h4>
+<table>
+  <% @restaurant.reviews.each do |rev| %>
+  <li></td>Rating: <%= rev.rating %>
+  Review: <%= rev.review %></li></td>
+    <% end %>
+  </table>
+
+<%= link_to 'View all', restaurants_path %>
